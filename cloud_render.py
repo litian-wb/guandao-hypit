@@ -6,7 +6,9 @@ scene=engine/'examples/semantic-composition'
 def run(args,**kw):
     print('+',' '.join(map(str,args)),flush=True)
     return subprocess.run(list(map(str,args)),cwd=engine,check=True,**kw)
-def cli(*args,**kw):return run(['node','bin/hypit.mjs',*args],**kw)
+def cli(*args,**kw):
+    scope=[] if '--project' in args else ['--project',str(scene)]
+    return run(['node','bin/hypit.mjs',*args,*scope],**kw)
 try:
     if mode=='production':
         for f in ['chat.svml','chat.svrun','chat.svs']:
