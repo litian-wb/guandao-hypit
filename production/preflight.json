@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "duration": 90.8,
+  "fps": 60,
+  "frames": 5448,
+  "events": 30,
+  "beats": 155,
+  "source_copy_covered": true,
+  "font_body_px": 48,
+  "minimum_event_spacing_s": 2.0166666666666657
+}

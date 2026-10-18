@@ -28,7 +28,7 @@ try:
     data=json.loads(p.stdout);build=data['build'];bid=build['id']
     cli('get',bid,*common,'--output','final.video','--to',str(out/'silent.mp4'))
     if mode=='production':
-        run(['ffmpeg','-v','error','-i',out/'silent.mp4','-i',project/'assets/bgm.mp3','-map','0:v','-map','1:a','-c:v','copy','-c:a','aac','-b:a','192k','-af','afade=t=out:st=49.6:d=0.8','-t','50.4','-movflags','+faststart','-y',out/'guandao-final.mp4'])
+        run(['ffmpeg','-v','error','-i',out/'silent.mp4','-i',project/'assets/bgm.mp3','-map','0:v','-map','1:a','-c:v','copy','-c:a','aac','-b:a','192k','-af','afade=t=out:st=89.6:d=1.2','-t','90.8','-movflags','+faststart','-y',out/'guandao-final.mp4'])
         (out/'silent.mp4').unlink()
         final=out/'guandao-final.mp4'
     else:final=out/'silent.mp4'

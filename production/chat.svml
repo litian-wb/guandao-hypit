@@ -1,0 +1,83 @@
+<?svml using="@hypit/markup@1"?>
+<svml>
+  <import as="time" from="@hypit/timeline-author@1"/>
+  <import as="spatial" from="@hypit/spatial@1"/>
+  <import as="media" from="@hypit/media@1"/>
+  <import as="fonts" from="@hypit/fontsource@1"/>
+  <import as="chat" from="@example/chat-scene@1"/>
+  <import as="film" from="@hypit/film@1"/>
+  <import as="html" from="@hypit/html-video@1"/>
+  <import as="style" source="./chat.svs"/>
+  <time:Clock id="animation-clock" frame-rate="60"/>
+  <time:Timeline id="animation" clock={animation-clock} end="90.8s">
+    <time:Instant id="beat0" at="1f"/>
+    <time:Instant id="beat1" at="148f"/>
+    <time:Instant id="beat2" at="304f"/>
+    <time:Instant id="beat3" at="496f"/>
+    <time:Instant id="beat4" at="671f"/>
+    <time:Instant id="beat5" at="850f"/>
+    <time:Instant id="beat6" at="1051f"/>
+    <time:Instant id="beat7" at="1231f"/>
+    <time:Instant id="beat8" at="1386f"/>
+    <time:Instant id="beat9" at="1525f"/>
+    <time:Instant id="beat10" at="1742f"/>
+    <time:Instant id="beat11" at="1958f"/>
+    <time:Instant id="beat12" at="2131f"/>
+    <time:Instant id="beat13" at="2252f"/>
+    <time:Instant id="beat14" at="2423f"/>
+    <time:Instant id="beat15" at="2641f"/>
+    <time:Instant id="beat16" at="2890f"/>
+    <time:Instant id="beat17" at="3049f"/>
+    <time:Instant id="beat18" at="3247f"/>
+    <time:Instant id="beat19" at="3407f"/>
+    <time:Instant id="beat20" at="3610f"/>
+    <time:Instant id="beat21" at="3815f"/>
+    <time:Instant id="beat22" at="4049f"/>
+    <time:Instant id="beat23" at="4264f"/>
+    <time:Instant id="beat24" at="4421f"/>
+    <time:Instant id="beat25" at="4568f"/>
+    <time:Instant id="beat26" at="4753f"/>
+    <time:Instant id="beat27" at="4937f"/>
+    <time:Instant id="beat28" at="5102f"/>
+    <time:Instant id="beat29" at="5295f"/>
+  </time:Timeline>
+  <spatial:Canvas id="canvas" width="1920" height="1080"/>
+  <fonts:Face id="font-face" package="@fontsource-variable/noto-sans-sc" weight="700" style="normal"/>
+  <media:FontStack id="font" primary={font-face}/>
+  <chat:Scene id="navigation" timeline={animation.timeline} within={canvas.bounds} font={font} during={animation.window} title="观道">
+    <chat:Message id="beat0" sender="让你翻船的" text="让你翻船的，未必是风浪。" side="left" at={animation.beat0}/>
+    <chat:Message id="beat1" sender="未必是风浪" text="也可能是那句：" side="left" at={animation.beat1}/>
+    <chat:Message id="beat2" sender="再往前一点" text="“再往前一点，就能赢了。”" side="left" at={animation.beat2}/>
+    <chat:Message id="beat3" sender="同一条河" text="同一条河，为什么有人进，有人退？" side="left" at={animation.beat3}/>
+    <chat:Message id="beat4" sender="万物皆变" text="万物皆变，规律不变。" side="left" at={animation.beat4}/>
+    <chat:Message id="beat5" sender="规律不变" text="变的是水势，不变的是进退的分寸。" side="left" at={animation.beat5}/>
+    <chat:Message id="beat6" sender="风转 · 水落" text="风会转向，水有涨落。" side="left" at={animation.beat6}/>
+    <chat:Message id="beat7" sender="弱时观势" text="弱时观势，不是站在岸边空等。" side="left" at={animation.beat7}/>
+    <chat:Message id="beat8" sender="先别硬闯" text="船小的时候，别急着跟浪较劲。" side="left" at={animation.beat8}/>
+    <chat:Message id="beat9" sender="先看水 · 再看风" text="看清哪里有力，哪里会把你卷回。" side="left" at={animation.beat9}/>
+    <chat:Message id="beat10" sender="等方向清楚" text="方向清楚了，再把第一步迈出去。" side="left" at={animation.beat10}/>
+    <chat:Message id="beat11" sender="盛时知止" text="盛时知止，不是突然胆小。" side="left" at={animation.beat11}/>
+    <chat:Message id="beat12" sender="顺风 ≠ 永远加速" text="顺风时，别忘了借的是风。" side="left" at={animation.beat12}/>
+    <chat:Message id="beat13" sender="浪尖之前 · 收帆" text="越接近浪尖，越要知道何时收帆。" side="left" at={animation.beat13}/>
+    <chat:Message id="beat14" sender="势来则乘" text="势来则乘，让方向替你省力。" side="left" at={animation.beat14}/>
+    <chat:Message id="beat15" sender="借势 · 不逞强" text="借的是势，不是把蛮力当本事。" side="left" at={animation.beat15}/>
+    <chat:Message id="beat16" sender="势尽则退" text="势尽则退，别把退让看成失败。" side="left" at={animation.beat16}/>
+    <chat:Message id="beat17" sender="风已转向" text="风已经变了，再用力，也回不到刚才。" side="left" at={animation.beat17}/>
+    <chat:Message id="beat18" sender="再进 · 只是执拗" text="此刻再进，可能只是舍不得停下。" side="left" at={animation.beat18}/>
+    <chat:Message id="beat19" sender="留住下一程" text="退一步，是把下一程的可能留下。" side="left" at={animation.beat19}/>
+    <chat:Message id="beat20" sender="观道" text="所以，观道，" side="left" at={animation.beat20}/>
+    <chat:Message id="beat21" sender="不算尽未来" text="不是为了算尽未来。" side="left" at={animation.beat21}/>
+    <chat:Message id="beat22" sender="推演 ≠ 保证" text="你可以推演很多条路，却不能保证每阵风。" side="left" at={animation.beat22}/>
+    <chat:Message id="beat23" sender="变化来临之前" text="是为了在变化来临之前，" side="left" at={animation.beat23}/>
+    <chat:Message id="beat24" sender="认出第一道转向" text="认出水面第一道转向。" side="left" at={animation.beat24}/>
+    <chat:Message id="beat25" sender="先调整自己" text="不等风浪推着你走，先调整自己。" side="left" at={animation.beat25}/>
+    <chat:Message id="beat26" sender="不必赢过每场风" text="你不需要赢过每一场风。" side="left" at={animation.beat26}/>
+    <chat:Message id="beat27" sender="看懂自己" text="你要看懂的，是自己。" side="left" at={animation.beat27}/>
+    <chat:Message id="beat28" sender="该往哪里走" text="看懂自己该往哪里走。" side="left" at={animation.beat28}/>
+    <chat:Message id="beat29" sender="进退 · 由你" text="这一次，进退，由你。" side="left" at={animation.beat29}/>
+  </chat:Scene>
+  <film:Film id="main" canvas={canvas.canvas} timeline={animation.timeline} appearance={style.film.main}>
+    <film:Track source={navigation.visual}/>
+  </film:Film>
+  <html:Video id="final" composition={main.composition} timeline={animation.timeline}/>
+</svml>
