@@ -1,0 +1,7 @@
+analysis/
+output/
+assets/*
+!assets/bgm.mp3
+__pycache__/
+*.wav
+.DS_Store
