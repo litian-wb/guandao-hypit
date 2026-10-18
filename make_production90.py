@@ -22,7 +22,7 @@ export function renderChat(timeline: Timeline, within: SpatialFrame, window: Tem
   font: FontStackRef, messages: readonly Message[], options: ChatOptions) {
   assertTemporalWindowFor(window, { subjectId: options.id, timeline });
   let order=0;
-  const text=(id:string,value:string,size:number,color:string):VisualElement=>({id,kind:"text",parent:"guandao",order:++order,text:value,fonts:font.faces,style:[{name:"font-size",value:`${size}px`},{name:"line-height",value:1.25},{name:"color",value:color},{name:"font-weight",value:700}]});
+  const text=(id:string,value:string,size:number,color:string):VisualElement=>({id,kind:"text",parent:"guandao",order:++order,text:value,fonts:font.faces,style:[{name:"font-size",value:`${size}px`},{name:"line-height",value:1.25},{name:"color",value:color}]});
   const children=[text("brand","观 道",25,"#a1bbb9"),text("edition","变化之中 · 进退有度",22,"#77979a"),
     ...messages.flatMap((m,i)=>[text(`title-${i}`,m.sender,m.sender.length>7?86:m.sender.length>5?104:130,[0,1,2,12,13,17,18].includes(i)?"#e16859":[5,6,22].includes(i)?"#e2bd85":"#83e4d0"),text(`line-${i}`,m.text,48,"#edf2ec")])];
   const html=`<canvas></canvas><div class="brand">{{brand}}</div><div class="edition">{{edition}}</div><div class="number">01</div>${messages.map((m,i)=>`<section class="section"><div class="keyword">{{title-${i}}}</div><div class="caption">{{line-${i}}}</div></section>`).join("")}`;
