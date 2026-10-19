@@ -7,7 +7,8 @@ on:
         default: smoke
         required: true
         type: choice
-        options: [smoke, production]
+        options: [smoke, production, v2]
+
 permissions:
   contents: read
 concurrency:
@@ -42,6 +43,9 @@ jobs:
           pnpm install --frozen-lockfile
           pnpm build:public-types
           pnpm --filter @example/chat-scene build
+      - name: Audit v2 contacts, captions, brightness and real motion
+        if: inputs.mode == 'v2'
+        run: node project/v2/cloud_audit.mjs
       - name: Render without model services
         env:
           RENDER_MODE: ${{ inputs.mode }}

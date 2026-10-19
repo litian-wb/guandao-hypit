@@ -10,13 +10,15 @@ def cli(*args,**kw):
     scope=[] if '--project' in args else ['--project',str(scene)]
     return run(['node','bin/hypit.mjs',*args,*scope],**kw)
 try:
-    if mode=='production':
+    if mode in ('production','v2'):
+        sources=project/('v2/generated' if mode=='v2' else 'production')
         for f in ['chat.svml','chat.svrun','chat.svs']:
-            shutil.copyfile(project/'production'/f,scene/f)
-        shutil.copyfile(project/'production/render.ts',scene/'packages/chat-scene/src/render.ts')
+            shutil.copyfile(sources/f,scene/f)
+        shutil.copyfile(sources/'render.ts',scene/'packages/chat-scene/src/render.ts')
         run(['pnpm','--filter','@example/chat-scene','build'])
     cfg=json.loads((scene/'hypit.runtime.json').read_text())
-    cfg['endpoints']['html.local']['config']={'chromePath':shutil.which('google-chrome'),'workers':1,'maxWorkers':1,'defaultConcurrency':1}
+    workers=2 if mode=='v2' else 1
+    cfg['endpoints']['html.local']['config']={'chromePath':shutil.which('google-chrome'),'workers':workers,'maxWorkers':workers,'defaultConcurrency':1}
     (scene/'hypit.runtime.json').write_text(json.dumps(cfg))
     common=['--project',str(scene)]
     rt=['--runtime',str(scene/'hypit.runtime.json')]
@@ -27,10 +29,11 @@ try:
     print(p.stdout,flush=True)
     data=json.loads(p.stdout);build=data['build'];bid=build['id']
     cli('get',bid,*common,'--output','final.video','--to',str(out/'silent.mp4'))
-    if mode=='production':
-        run(['ffmpeg','-v','error','-i',out/'silent.mp4','-i',project/'assets/bgm.mp3','-map','0:v','-map','1:a','-c:v','copy','-c:a','aac','-b:a','192k','-af','afade=t=out:st=89.6:d=1.2','-t','90.8','-movflags','+faststart','-y',out/'guandao-final.mp4'])
+    if mode in ('production','v2'):
+        final_name='guandao-v2-final.mp4' if mode=='v2' else 'guandao-final.mp4'
+        run(['ffmpeg','-v','error','-i',out/'silent.mp4','-i',project/'assets/bgm.mp3','-map','0:v','-map','1:a','-c:v','copy','-c:a','aac','-b:a','192k','-af','afade=t=out:st=89.6:d=1.2','-t','90.8','-movflags','+faststart','-y',out/final_name])
         (out/'silent.mp4').unlink()
-        final=out/'guandao-final.mp4'
+        final=out/final_name
     else:final=out/'silent.mp4'
     probe=run(['ffprobe','-v','error','-show_format','-show_streams','-of','json',final],capture_output=True,text=True)
     (out/'probe.json').write_text(probe.stdout)

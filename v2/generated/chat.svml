@@ -1,0 +1,83 @@
+<?svml using="@hypit/markup@1"?>
+<svml>
+  <import as="time" from="@hypit/timeline-author@1"/>
+  <import as="spatial" from="@hypit/spatial@1"/>
+  <import as="media" from="@hypit/media@1"/>
+  <import as="fonts" from="@hypit/fontsource@1"/>
+  <import as="chat" from="@example/chat-scene@1"/>
+  <import as="film" from="@hypit/film@1"/>
+  <import as="html" from="@hypit/html-video@1"/>
+  <import as="style" source="./chat.svs"/>
+  <time:Clock id="clock" frame-rate="60"/>
+  <time:Timeline id="animation" clock={clock} end="5448f">
+    <time:Instant id="act0" at="0f"/>
+    <time:Instant id="act1" at="148f"/>
+    <time:Instant id="act2" at="304f"/>
+    <time:Instant id="act3" at="496f"/>
+    <time:Instant id="act4" at="671f"/>
+    <time:Instant id="act5" at="850f"/>
+    <time:Instant id="act6" at="1051f"/>
+    <time:Instant id="act7" at="1231f"/>
+    <time:Instant id="act8" at="1386f"/>
+    <time:Instant id="act9" at="1525f"/>
+    <time:Instant id="act10" at="1742f"/>
+    <time:Instant id="act11" at="1958f"/>
+    <time:Instant id="act12" at="2131f"/>
+    <time:Instant id="act13" at="2252f"/>
+    <time:Instant id="act14" at="2423f"/>
+    <time:Instant id="act15" at="2641f"/>
+    <time:Instant id="act16" at="2890f"/>
+    <time:Instant id="act17" at="3049f"/>
+    <time:Instant id="act18" at="3247f"/>
+    <time:Instant id="act19" at="3407f"/>
+    <time:Instant id="act20" at="3610f"/>
+    <time:Instant id="act21" at="3815f"/>
+    <time:Instant id="act22" at="4049f"/>
+    <time:Instant id="act23" at="4264f"/>
+    <time:Instant id="act24" at="4421f"/>
+    <time:Instant id="act25" at="4568f"/>
+    <time:Instant id="act26" at="4753f"/>
+    <time:Instant id="act27" at="4937f"/>
+    <time:Instant id="act28" at="5102f"/>
+    <time:Instant id="act29" at="5295f"/>
+  </time:Timeline>
+  <spatial:Canvas id="canvas" width="1920" height="1080"/>
+  <fonts:Face id="font-face" package="@fontsource-variable/noto-sans-sc" weight="700" style="normal"/>
+  <media:FontStack id="font" primary={font-face}/>
+  <chat:Scene id="journey" timeline={animation.timeline} within={canvas.bounds} font={font} during={animation.window} title="观道">
+    <chat:Message id="act0" sender="最后一寸" text="再往前一寸，丢掉的就是整车。" side="left" at={animation.act0}/>
+    <chat:Message id="act1" sender="停得住吗" text="轮子停了，货物却还在往前。" side="left" at={animation.act1}/>
+    <chat:Message id="act2" sender="不是走得慢" text="可刚才，他还觉得自己走得太慢。" side="left" at={animation.act2}/>
+    <chat:Message id="act3" sender="回到出发时" text="他要把这一车东西，送到山的另一边。" side="left" at={animation.act3}/>
+    <chat:Message id="act4" sender="万物皆变" text="万物皆变，规律不变。" side="right" at={animation.act4}/>
+    <chat:Message id="act5" sender="先看清脚下" text="风会转，水会涨；重物仍向低处走。" side="left" at={animation.act5}/>
+    <chat:Message id="act6" sender="弱时观势" text="弱时观势，不是站着空等。" side="right" at={animation.act6}/>
+    <chat:Message id="act7" sender="越推越退" text="他越用力，轮子反而越往后滑。" side="left" at={animation.act7}/>
+    <chat:Message id="act8" sender="先停一下" text="不是再多使一点劲，就能走上去。" side="left" at={animation.act8}/>
+    <chat:Message id="act9" sender="坡度与去路" text="看清坡度，也看看旁边那条缓路。" side="left" at={animation.act9}/>
+    <chat:Message id="act10" sender="越过坡顶" text="换一条缓路，车终于越过了坡顶。" side="left" at={animation.act10}/>
+    <chat:Message id="act11" sender="盛时知止" text="盛时知止，难在一切都很顺。" side="right" at={animation.act11}/>
+    <chat:Message id="act12" sender="从推到刹" text="刚才需要推，现在却必须刹。" side="left" at={animation.act12}/>
+    <chat:Message id="act13" sender="别把顺当本事" text="车走得快，不全是你的本事。" side="left" at={animation.act13}/>
+    <chat:Message id="act14" sender="势来则乘" text="势来则乘，让条件替你省力。" side="right" at={animation.act14}/>
+    <chat:Message id="act15" sender="展开布面" text="风向对了，他才把布面展开。" side="left" at={animation.act15}/>
+    <chat:Message id="act16" sender="只扶方向" text="不必一直硬推，也能稳稳往前。" side="left" at={animation.act16}/>
+    <chat:Message id="act17" sender="风已经变了" text="可风不会，一直替你推车。" side="left" at={animation.act17}/>
+    <chat:Message id="act18" sender="桥也变了" text="桥板松了，水也涨过了刻线。" side="left" at={animation.act18}/>
+    <chat:Message id="act19" sender="势尽则退" text="势尽则退，不是把这一程认输。" side="right" at={animation.act19}/>
+    <chat:Message id="act20" sender="保住这一车" text="退回平地，才留得住下一程。" side="left" at={animation.act20}/>
+    <chat:Message id="act21" sender="观道" text="观道，不是为了算尽未来。" side="right" at={animation.act21}/>
+    <chat:Message id="act22" sender="地图不是现实" text="地图上的捷径，眼前未必走得通。" side="left" at={animation.act22}/>
+    <chat:Message id="act23" sender="变化来临之前" text="是为了在变化来临之前，" side="left" at={animation.act23}/>
+    <chat:Message id="act24" sender="先抬头看看" text="先抬头看看，条件已经变了没有。" side="left" at={animation.act24}/>
+    <chat:Message id="act25" sender="量一量自己" text="再量一量，自己的车能走多宽的路。" side="left" at={animation.act25}/>
+    <chat:Message id="act26" sender="换一条路" text="他没有再赌那最后一寸。" side="left" at={animation.act26}/>
+    <chat:Message id="act27" sender="货物还在" text="多走一点路，整车东西却都还在。" side="left" at={animation.act27}/>
+    <chat:Message id="act28" sender="看懂自己" text="看懂自己该往哪里走。" side="right" at={animation.act28}/>
+    <chat:Message id="act29" sender="走得下去" text="不是每条近路，都属于你。" side="left" at={animation.act29}/>
+  </chat:Scene>
+  <film:Film id="main" canvas={canvas.canvas} timeline={animation.timeline} appearance={style.film.main}>
+    <film:Track source={journey.visual}/>
+  </film:Film>
+  <html:Video id="final" composition={main.composition} timeline={animation.timeline}/>
+</svml>
